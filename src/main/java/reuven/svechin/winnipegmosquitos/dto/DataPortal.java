@@ -1,16 +1,9 @@
 package reuven.svechin.winnipegmosquitos.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import reuven.svechin.winnipegmosquitos.enums.Sectors;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
@@ -19,14 +12,15 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Builder
 @ToString
-public class DataPortalDto {
+public class DataPortal {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
 //    @Column(name = "id", nullable = false)
-    private Long id;
+    private long id;
     private String trapid;
-    private int mosquitos;
-    private int location;
+    private int mosquitoes;
+    @Enumerated(EnumType.STRING)
+    private Sectors location;
     private Timestamp timestamp;
 
     public Long getId() {

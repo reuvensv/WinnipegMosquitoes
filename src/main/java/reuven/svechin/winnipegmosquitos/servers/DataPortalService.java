@@ -1,9 +1,9 @@
 package reuven.svechin.winnipegmosquitos.servers;
 
-import reuven.svechin.winnipegmosquitos.dto.DataPortalDto;
+import reuven.svechin.winnipegmosquitos.dto.DataPortal;
 
 import java.util.List;
 
 public interface DataPortalService {
-    List<DataPortalDto> fetchData();
+    List<DataPortal>  fetchDataGreaterThanId(long id);
 }
