@@ -1,12 +1,14 @@
 package com.reuven.svechin.winnipegmosquitoes.servers;
 
+import com.reuven.svechin.winnipegmosquitoes.dto.Mosquito;
 import com.reuven.svechin.winnipegmosquitoes.enums.Sectors;
+import com.reuven.svechin.winnipegmosquitoes.repo.MosquitoesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import com.reuven.svechin.winnipegmosquitoes.dto.Mosquito;
-import com.reuven.svechin.winnipegmosquitoes.repo.MosquitoesRepository;
+import org.springframework.util.CollectionUtils;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -20,8 +22,12 @@ public class MosquitoesServiceImpl implements MosquitoesService{
     }
     
     @Override
-    public List<Mosquito> findByCreatedAtGreaterThanEqualAndLessThanEqualAndSectorIn(Timestamp startDate, Timestamp endDate, List<Sectors> sectors) {
-        return mosquitoesRepository.findByCreatedAtGreaterThanEqualAndCreatedAtLessThanEqualAndSectorIn(startDate,endDate, sectors);
+    public List<Mosquito> getData(Timestamp startDate, Timestamp endDate, List<Sectors> sectors) {
+
+        // According to the requested behaviour, in case the sectors is not specified, we should get data for ALL sectors.
+        List<Sectors> sectorsToQuery = CollectionUtils.isEmpty(sectors) ? Arrays.asList(Sectors.values()) : sectors;
+
+        return mosquitoesRepository.findByCreatedAtGreaterThanEqualAndCreatedAtLessThanEqualAndSectorIn(startDate,endDate,sectorsToQuery);
     }
     
 }

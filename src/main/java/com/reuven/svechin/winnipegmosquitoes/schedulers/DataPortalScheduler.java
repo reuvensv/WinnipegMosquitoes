@@ -23,7 +23,7 @@ public class DataPortalScheduler {
     private final MosquitoesService mosquitoesService;
     private long keepedId = 0;
     
-    @Scheduled(fixedRate = 3000)
+    @Scheduled(fixedRate = 1000 * 60 * 3)
     public void getUpdateScheduledTask() {
         List<DataPortal> fetchedData = dataPortalService.fetchDataGreaterThanId(keepedId);
         if (CollectionUtils.isEmpty(fetchedData)) {
@@ -38,14 +38,12 @@ public class DataPortalScheduler {
     
     private List<Mosquito> convertData(List<DataPortal> fetchedData) {
         List<Mosquito> mosquitosData = new ArrayList<>();
-        fetchedData.forEach(entity -> {
-            mosquitosData.add(Mosquito.builder()
-                    .trapid(entity.getTrapid())
-                    .sector(entity.getLocation())
-                    .mosquitoes(entity.getMosquitoes())
-                    .createdAt(entity.getTimestamp())
-                    .build());
-        });
+        fetchedData.forEach(entity -> mosquitosData.add(Mosquito.builder()
+                .trapid(entity.getTrapid())
+                .sector(entity.getLocation())
+                .mosquitoes(entity.getMosquitoes())
+                .createdAt(entity.getTimestamp())
+                .build()));
         return mosquitosData;
     }
     

@@ -9,7 +9,7 @@ import java.util.List;
 public class MosquitoesRequest {
     
     Long startDate ;
-    Long stopDate;
+    Long endDate;
     List<Sectors> sectors;
     DisplaySummary displaySummary;
 
