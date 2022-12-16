@@ -1,7 +1,7 @@
-package reuven.svechin.winnipegmosquitos.dto;
+package com.reuven.svechin.winnipegmosquitoes.dto;
 
+import com.reuven.svechin.winnipegmosquitoes.enums.Sectors;
 import lombok.*;
-import reuven.svechin.winnipegmosquitos.enums.Sectors;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

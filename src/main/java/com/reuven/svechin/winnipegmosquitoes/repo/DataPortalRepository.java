@@ -1,8 +1,8 @@
-package reuven.svechin.winnipegmosquitos.repo;
+package com.reuven.svechin.winnipegmosquitoes.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import reuven.svechin.winnipegmosquitos.dto.DataPortal;
+import com.reuven.svechin.winnipegmosquitoes.dto.DataPortal;
 
 import java.util.List;
 

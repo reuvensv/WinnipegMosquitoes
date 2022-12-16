@@ -1,9 +1,9 @@
-package reuven.svechin.winnipegmosquitos.servers;
+package com.reuven.svechin.winnipegmosquitoes.servers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import reuven.svechin.winnipegmosquitos.dto.DataPortal;
-import reuven.svechin.winnipegmosquitos.repo.DataPortalRepository;
+import com.reuven.svechin.winnipegmosquitoes.dto.DataPortal;
+import com.reuven.svechin.winnipegmosquitoes.repo.DataPortalRepository;
 
 import java.util.List;
 

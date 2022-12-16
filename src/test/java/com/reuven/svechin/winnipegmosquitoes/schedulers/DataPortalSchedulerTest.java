@@ -1,7 +1,8 @@
-package reuven.svechin.winnipegmosquitos.schedulers;
+package com.reuven.svechin.winnipegmosquitoes.schedulers;
 
+import com.reuven.svechin.winnipegmosquitoes.enums.Sectors;
 import org.junit.jupiter.api.Test;
-import reuven.svechin.winnipegmosquitos.dto.DataPortal;
+import com.reuven.svechin.winnipegmosquitoes.dto.DataPortal;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
@@ -17,7 +18,7 @@ class DataPortalSchedulerTest {
         DataPortal dp1 = DataPortal.builder()
                 .id(1)
                 .trapid("trap1")
-                .location("SOUTH")
+                .location(Sectors.NORTH_WEST)
                 .timestamp(new Timestamp(System.currentTimeMillis()))
                 .build();
         List<DataPortal> dataportal = Arrays.asList(dp1);

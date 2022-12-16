@@ -1,16 +1,14 @@
-package reuven.svechin.winnipegmosquitos.schedulers;
+package com.reuven.svechin.winnipegmosquitoes.schedulers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import reuven.svechin.winnipegmosquitos.dto.DataPortal;
-import reuven.svechin.winnipegmosquitos.dto.Mosquito;
-import reuven.svechin.winnipegmosquitos.servers.DataPortalService;
-import reuven.svechin.winnipegmosquitos.servers.DataPortalServiceImpl;
-import reuven.svechin.winnipegmosquitos.servers.MosquitoesService;
-import reuven.svechin.winnipegmosquitos.servers.MosquitoesServiceImpl;
+import com.reuven.svechin.winnipegmosquitoes.dto.DataPortal;
+import com.reuven.svechin.winnipegmosquitoes.dto.Mosquito;
+import com.reuven.svechin.winnipegmosquitoes.servers.DataPortalService;
+import com.reuven.svechin.winnipegmosquitoes.servers.MosquitoesService;
 
 import java.util.ArrayList;
 import java.util.Comparator;

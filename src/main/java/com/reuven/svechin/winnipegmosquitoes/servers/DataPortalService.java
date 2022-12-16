@@ -1,6 +1,6 @@
-package reuven.svechin.winnipegmosquitos.servers;
+package com.reuven.svechin.winnipegmosquitoes.servers;
 
-import reuven.svechin.winnipegmosquitos.dto.DataPortal;
+import com.reuven.svechin.winnipegmosquitoes.dto.DataPortal;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package reuven.svechin.winnipegmosquitos.enums;
+package com.reuven.svechin.winnipegmosquitoes.enums;
 
 public enum Sectors {
     NORTH_WEST,
