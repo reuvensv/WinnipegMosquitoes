@@ -1,4 +1,4 @@
-package com.reuven.svechin.winnipegmosquitoes.objects;
+package com.reuven.svechin.winnipegmosquitoes.objects.responses;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +8,6 @@ import java.util.List;
 
 @Getter
 @Setter
-public class Result {
+public abstract class Result implements IResult {
     List<Mosquito> returnedData;
 }

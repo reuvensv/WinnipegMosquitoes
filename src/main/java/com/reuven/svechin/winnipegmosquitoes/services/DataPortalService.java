@@ -1,4 +1,4 @@
-package com.reuven.svechin.winnipegmosquitoes.servers;
+package com.reuven.svechin.winnipegmosquitoes.services;
 
 import com.reuven.svechin.winnipegmosquitoes.dto.DataPortal;
 

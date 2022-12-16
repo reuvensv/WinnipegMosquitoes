@@ -1,4 +1,4 @@
-package com.reuven.svechin.winnipegmosquitoes.objects;
+package com.reuven.svechin.winnipegmosquitoes.objects.requests;
 
 import com.reuven.svechin.winnipegmosquitoes.enums.Sectors;
 import lombok.Getter;

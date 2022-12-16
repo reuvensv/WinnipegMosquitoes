@@ -1,4 +1,4 @@
-package com.reuven.svechin.winnipegmosquitoes.servers;
+package com.reuven.svechin.winnipegmosquitoes.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,5 +15,8 @@ public class DataPortalServiceImpl implements DataPortalService{
     public List<DataPortal> fetchDataGreaterThanId(long id) {
         return dataPortalRepository.findByIdGreaterThan(id);
         
+    }
+    public List<DataPortal> saveAll( List<DataPortal> data) {
+        return dataPortalRepository.saveAll(data);
     }
 }

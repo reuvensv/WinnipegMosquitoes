@@ -14,8 +14,8 @@ import java.sql.Timestamp;
 @ToString
 public class DataPortal {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-//    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private long id;
     private String trapid;
     private int mosquitoes;

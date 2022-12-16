@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import com.reuven.svechin.winnipegmosquitoes.dto.DataPortal;
 import com.reuven.svechin.winnipegmosquitoes.dto.Mosquito;
-import com.reuven.svechin.winnipegmosquitoes.servers.DataPortalService;
-import com.reuven.svechin.winnipegmosquitoes.servers.MosquitoesService;
+import com.reuven.svechin.winnipegmosquitoes.services.DataPortalService;
+import com.reuven.svechin.winnipegmosquitoes.services.MosquitoesService;
 
 import java.util.ArrayList;
 import java.util.Comparator;
