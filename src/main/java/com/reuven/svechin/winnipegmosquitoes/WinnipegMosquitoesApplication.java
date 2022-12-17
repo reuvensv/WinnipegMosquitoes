@@ -8,10 +8,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 public class WinnipegMosquitoesApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(WinnipegMosquitoesApplication.class, args);
         System.out.println("UP");
     }
-
 }

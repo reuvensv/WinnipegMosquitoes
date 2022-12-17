@@ -6,6 +6,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+/**
+ * The class represents a record of local resource
+ */
 @Entity
 @Data
 @NoArgsConstructor

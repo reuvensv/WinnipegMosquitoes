@@ -12,11 +12,12 @@ import java.util.List;
 public class DataPortalServiceImpl implements DataPortalService{
     private final DataPortalRepository dataPortalRepository;
 
+    /**
+     * {@link DataPortalService#fetchDataGreaterThanId(long)}
+     */
     public List<DataPortal> fetchDataGreaterThanId(long id) {
         return dataPortalRepository.findByIdGreaterThan(id);
         
     }
-    public List<DataPortal> saveAll( List<DataPortal> data) {
-        return dataPortalRepository.saveAll(data);
-    }
+
 }

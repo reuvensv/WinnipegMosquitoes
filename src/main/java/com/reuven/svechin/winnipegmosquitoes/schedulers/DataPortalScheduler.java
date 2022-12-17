@@ -22,8 +22,11 @@ public class DataPortalScheduler {
     private final DataPortalService dataPortalService;
     private final MosquitoesService mosquitoesService;
     private long keepedId = 0;
-    
-    @Scheduled(fixedRate = 1000 * 60 * 3)
+
+    /**
+     * Scheduled task to get mosquitoes info from public data
+     */
+    @Scheduled(fixedRate = 1000 * 60 * 3) // every 3 minutes.
     public void getUpdateScheduledTask() {
         List<DataPortal> fetchedData = dataPortalService.fetchDataGreaterThanId(keepedId);
         if (CollectionUtils.isEmpty(fetchedData)) {
@@ -32,8 +35,8 @@ public class DataPortalScheduler {
         }
         keepedId = getLastPortalDataRecord(fetchedData).getId();
         log.info("Fetched data from Data Portal: {}", fetchedData);
-        List<Mosquito> moscitoData = convertData(fetchedData);
-        mosquitoesService.saveAll(moscitoData);
+        List<Mosquito> mosquitoesData = convertData(fetchedData);
+        mosquitoesService.saveAll(mosquitoesData);
     }
     
     private List<Mosquito> convertData(List<DataPortal> fetchedData) {
@@ -47,8 +50,7 @@ public class DataPortalScheduler {
         return mosquitosData;
     }
     
-    protected DataPortal getLastPortalDataRecord(List<DataPortal> fetchedData) {
+    private DataPortal getLastPortalDataRecord(List<DataPortal> fetchedData) {
         return fetchedData.stream().max(Comparator.comparing(DataPortal::getId)).orElseThrow(NoSuchElementException::new);
-        
     }
 }

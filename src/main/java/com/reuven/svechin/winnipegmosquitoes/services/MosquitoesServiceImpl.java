@@ -32,10 +32,16 @@ public class MosquitoesServiceImpl implements MosquitoesService {
     private final MosquitoesRepository mosquitoesRepository;
 
 
+    /**
+     * {@link MosquitoesService#saveAll(List)}
+     */
     public List<Mosquito> saveAll(List<Mosquito> mosquitoesData) {
         return mosquitoesRepository.saveAll(mosquitoesData);
     }
 
+    /**
+     * {@link MosquitoesService#proceedRequest(MosquitoesRequest)}
+     */
     @Override
     public IResult proceedRequest(MosquitoesRequest request) throws MosquitoesException {
         try {
@@ -117,7 +123,7 @@ public class MosquitoesServiceImpl implements MosquitoesService {
     }
 
     private int getCollectivelySummary(List<Mosquito> mosquitoesData) {
-        return mosquitoesData.stream().collect(Collectors.summingInt(Mosquito::getMosquitoes));
+        return mosquitoesData.stream().mapToInt(Mosquito::getMosquitoes).sum();
     }
 
     private Map<Sectors, Integer> getIndividualSummary(List<Mosquito> mosquitoesData) {

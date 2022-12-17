@@ -6,6 +6,9 @@ import com.reuven.svechin.winnipegmosquitoes.dto.Mosquito;
 
 import java.util.List;
 
+/**
+ * An abstract class to print returned data as part of response.
+ */
 @Getter
 @Setter
 public abstract class Result implements IResult {

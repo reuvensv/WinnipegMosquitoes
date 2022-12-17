@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import java.util.Map;
 
+/**
+ * The class represents data to display if "INDIVIDUALLY" option chosen.
+ */
 @Setter
 @Getter
 public class ResultIndividually extends Result {

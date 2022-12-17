@@ -19,12 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class MosquitoesController {
     private final MosquitoesService mosquitoesService;
 
+    /**
+     * An API endpoint to get mosquitoes summary
+     */
     @GetMapping()
     public ResponseEntity<IResult> getByConditions(@RequestBody MosquitoesRequest request) throws MosquitoesException {
 
         log.info("Get data request received: {}", request);
         return ResponseEntity.ok(mosquitoesService.proceedRequest(request));
     }
-
-
 }

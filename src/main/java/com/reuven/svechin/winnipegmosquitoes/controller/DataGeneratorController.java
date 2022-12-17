@@ -1,8 +1,6 @@
 package com.reuven.svechin.winnipegmosquitoes.controller;
 
-import com.reuven.svechin.winnipegmosquitoes.exception.MosquitoesException;
 import com.reuven.svechin.winnipegmosquitoes.objects.requests.DataGenerationRequest;
-import com.reuven.svechin.winnipegmosquitoes.objects.responses.IResult;
 import com.reuven.svechin.winnipegmosquitoes.services.RandomDataGenerationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,10 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequestMapping("/api/winnipeg/city/generator")
 public class DataGeneratorController {
-    private static RandomDataGenerationService randomDataGenerationService;
+    private final RandomDataGenerationService randomDataGenerationService;
 
+    /**
+     * An API Endpoint to generate a public data
+     */
     @PutMapping
-    public ResponseEntity<String> getByConditions(@RequestBody DataGenerationRequest request) throws MosquitoesException {
+    public ResponseEntity<String> getByConditions(@RequestBody DataGenerationRequest request) {
         randomDataGenerationService.proceedDataGenerationRequest(request);
         return ResponseEntity.ok("OK");
     }

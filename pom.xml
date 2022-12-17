@@ -15,7 +15,6 @@
     <name>WinnipegMosquitos</name>
     <description>WinnipegMosquitos</description>
     <properties>
-        <java.version>8.0</java.version>
     </properties>
     <dependencies>
         <dependency>

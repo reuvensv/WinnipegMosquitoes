@@ -5,6 +5,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * The class represents an emam of city sectors
+ */
 public enum Sectors {
     NORTH_WEST,
     NORTH_EAST,

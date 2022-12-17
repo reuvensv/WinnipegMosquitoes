@@ -2,7 +2,6 @@ package com.reuven.svechin.winnipegmosquitoes.services;
 
 import com.reuven.svechin.winnipegmosquitoes.dto.DataPortal;
 import com.reuven.svechin.winnipegmosquitoes.enums.Sectors;
-import com.reuven.svechin.winnipegmosquitoes.exception.MosquitoesException;
 import com.reuven.svechin.winnipegmosquitoes.objects.requests.DataGenerationRequest;
 import com.reuven.svechin.winnipegmosquitoes.repo.DataPortalRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +13,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+/**
+ * Service to generate random mosquitoes data
+ */
 @Service
 @RequiredArgsConstructor
 public class RandomDataGenerationService {
@@ -21,7 +23,11 @@ public class RandomDataGenerationService {
 
     private static final Random RANDOM = new Random();
 
-    public void proceedDataGenerationRequest(DataGenerationRequest request) throws MosquitoesException {
+    /**
+     * Handles request to generate data
+     * @param request data generation request.
+     */
+    public void proceedDataGenerationRequest(DataGenerationRequest request) {
 
         int records = request.getRecords();
 
@@ -33,13 +39,10 @@ public class RandomDataGenerationService {
                     .location(Sectors.randomSector())
                     .trapid(UUID.randomUUID().toString())
                     .mosquitoes(generateRandomMosquitoesNumber())
-                    .timestamp(generateRundomTimestamp(request.getStartDate(), request.getEntDate()))
+                    .timestamp(generateRundomTimestamp(request.getStartDate(), request.getEndDate()))
                     .build();
             data.add(record);
-            if (i % 200 == 0) {
-                dataPortalRepository.saveAll(data);
-                data = new ArrayList<>();
-            }
+            dataPortalRepository.saveAll(data);
         }
     }
 

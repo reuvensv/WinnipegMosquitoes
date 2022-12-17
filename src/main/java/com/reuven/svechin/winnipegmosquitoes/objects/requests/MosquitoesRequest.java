@@ -5,6 +5,10 @@ import lombok.Getter;
 import com.reuven.svechin.winnipegmosquitoes.enums.DisplaySummary;
 
 import java.util.List;
+
+/**
+ * Represents a request to summary mosquitoes
+ */
 @Getter
 public class MosquitoesRequest {
     

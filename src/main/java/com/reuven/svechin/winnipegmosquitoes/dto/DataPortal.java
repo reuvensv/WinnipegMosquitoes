@@ -6,6 +6,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+/**
+ * The class represent a record in public data resource
+ */
 @Entity
 @Data
 @NoArgsConstructor
@@ -15,7 +18,6 @@ import java.sql.Timestamp;
 public class DataPortal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private long id;
     private String trapid;
     private int mosquitoes;
@@ -26,10 +28,8 @@ public class DataPortal {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
 
 }

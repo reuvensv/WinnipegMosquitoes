@@ -6,8 +6,12 @@ import lombok.Setter;
 
 import java.util.Map;
 
+/**
+ * The class represents data to display if "BOTH" option chosen.
+ */
 @Setter
 @Getter
+
 public class ResultBoth extends Result {
 
     private Map<Sectors, Integer> individualSummary;
