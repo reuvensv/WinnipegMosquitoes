@@ -1,0 +1,116 @@
+openapi: "3.0.3"
+info:
+  title: "WinnipegMosquitoes API"
+  description: "WinnipegMosquitoes API"
+  version: "1.0.0"
+servers:
+  - url: "https://WinnipegMosquitoes"
+paths:
+  /api/winnipeg/city/mosquitoes:
+    get:
+      summary: "GET api/winnipeg/city/mosquitoes"
+      operationId: "getByConditions"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MosquitoesRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /api/winnipeg/city/mosquitoes/predefined:
+    get:
+      summary: "GET api/winnipeg/city/mosquitoes/predefined"
+      operationId: "getPredefined"
+      parameters:
+        - name: "key"
+          in: "query"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /api/winnipeg/city/generator:
+    put:
+      summary: "PUT api/winnipeg/city/generator"
+      operationId: "getByConditions"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataGenerationRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+components:
+  schemas:
+    MosquitoesRequest:
+      type: "object"
+      properties:
+        startDate:
+          type: "integer"
+          format: "int64"
+        endDate:
+          type: "integer"
+          format: "int64"
+        sectors:
+          type: "array"
+          items:
+            type: "string"
+            enum:
+              - "NORTH_WEST"
+              - "NORTH_EAST"
+              - "SOUTH_WEST"
+              - "SOUTH_EAST"
+              - "RURAL"
+              - "VALUES"
+              - "SIZE"
+              - "RANDOM"
+        displaySummary:
+          type: "string"
+          enum:
+            - "INDIVIDUALLY"
+            - "COLLECTIVELY"
+            - "BOTH"
+        displayData:
+          type: "boolean"
+    HttpHeaders:
+      type: "object"
+      properties: { }
+    ResponseEntity:
+      type: "object"
+      properties:
+        headers:
+          $ref: "#/components/schemas/HttpHeaders"
+    Timestamp:
+      type: "object"
+      properties:
+        nanos:
+          type: "integer"
+          format: "int32"
+    DataGenerationRequest:
+      type: "object"
+      properties:
+        startDate:
+          $ref: "#/components/schemas/Timestamp"
+        endDate:
+          $ref: "#/components/schemas/Timestamp"
+        records:
+          type: "integer"
+          format: "int32"

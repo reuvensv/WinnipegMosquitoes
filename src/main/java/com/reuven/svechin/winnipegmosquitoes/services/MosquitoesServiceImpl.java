@@ -55,11 +55,11 @@ public class MosquitoesServiceImpl implements MosquitoesService {
 
             switch (request.getDisplaySummary()) {
                 case INDIVIDUALLY:
-                    return getResultsIndividually(mosquitoesData);
+                    return getResultsIndividually(mosquitoesData, request.getDisplayData());
                 case COLLECTIVELY:
-                    return getResultsCollectively(mosquitoesData);
+                    return getResultsCollectively(mosquitoesData, request.getDisplayData());
                 case BOTH:
-                    return getResultsBoth(mosquitoesData);
+                    return getResultsBoth(mosquitoesData, request.getDisplayData());
                 default:
                     log.error("Unknown DisplaySummary type");
                     throw new UnsupportedOperationException("Unknown DisplaySummary type");
@@ -99,25 +99,31 @@ public class MosquitoesServiceImpl implements MosquitoesService {
         return prevYear.get(Calendar.YEAR);
     }
 
-    private IResult getResultsBoth(List<Mosquito> mosquitoesData) {
+    private IResult getResultsBoth(List<Mosquito> mosquitoesData, boolean displayData) {
         ResultBoth result = new ResultBoth();
-        result.setReturnedData(mosquitoesData);
+        if(displayData) {
+            result.setReturnedData(mosquitoesData);
+        }
         result.setIndividualSummary(getIndividualSummary(mosquitoesData));
         result.setTotal(getCollectivelySummary(mosquitoesData));
         return result;
     }
 
-    private IResult getResultsIndividually(List<Mosquito> mosquitoesData) {
+    private IResult getResultsIndividually(List<Mosquito> mosquitoesData, boolean displayData) {
         ResultIndividually result = new ResultIndividually();
-        result.setReturnedData(mosquitoesData);
+        if(displayData) {
+            result.setReturnedData(mosquitoesData);
+        }
         result.setIndividualSummary(getIndividualSummary(mosquitoesData));
         return result;
     }
 
 
-    private IResult getResultsCollectively(List<Mosquito> mosquitoesData) {
+    private IResult getResultsCollectively(List<Mosquito> mosquitoesData, boolean displayData) {
         ResultCollectively result = new ResultCollectively();
-        result.setReturnedData(mosquitoesData);
+        if(displayData) {
+            result.setReturnedData(mosquitoesData);
+        }
         result.setTotal(getCollectivelySummary(mosquitoesData));
         return result;
     }
