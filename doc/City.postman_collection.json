@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "a1328365-9e7d-4ed8-9099-a67db5823778",
+		"name": "City",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14824762"
+	},
+	"item": [
+		{
+			"name": "Get Mosquitoes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n\n{\n    \"startDate\":\"1530421200000\",\n    \"endDate\":\"1533099599000\",\n    \"sectors\" :[\"NORTH_EAST\", \"SOUTH_EAST\"],\n    \"displaySummary\":\"BOTH\",\n    \"displayData\":\"false\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/winnipeg/city/mosquitoes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"winnipeg",
+						"city",
+						"mosquitoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Data Generator",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"startDate\":\"1451606400000\",\n    \"endDate\":\"1671148800000\",\n    \"records\":\"100\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/winnipeg/city/generator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"winnipeg",
+						"city",
+						"generator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Predefined",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/winnipeg/city/mosquitoes/predefined?key=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"winnipeg",
+						"city",
+						"mosquitoes",
+						"predefined"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
